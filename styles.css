@@ -1,64 +1,61 @@
-/* Reset some default margins */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-}
-
-/* Header section */
+/* ===== Header Section ===== */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #2c3e50;
   color: white;
   padding: 20px;
+  overflow: auto; /* clears floats */
 }
 
+/* Header title */
 header h1 {
+  float: left;
   margin: 0;
   font-size: 2rem;
+}
+
+/* Navigation links */
+nav {
+  float: right;
+  margin-top: 10px;
 }
 
 nav a {
   color: #ecf0f1;
   text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
+  margin-left: 15px;
 }
 
-/* Main layout container */
+/* Hover state for links */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Main Layout Container ===== */
 .container {
-  display: flex;
-  background-image: url('moroccan-flower.png');
+  background-image: url('moroccan-flower.png'); /* replace with your actual pattern filename */
   background-repeat: repeat;
   padding: 20px;
+  overflow: auto; /* ensures container wraps floated children */
 }
 
-/* About section with profile image */
+/* ===== About Section ===== */
 .about {
-  flex: 3;
-  background-color: #ecf0f1;  /* ✅ Solid background added */
+  float: left;
+  width: 70%;
+  background-color: #ecf0f1; 
   padding: 20px;
   border-right: 2px solid #ccc;
   box-sizing: border-box;
 }
 
-.about-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
+.about h2 {
+  margin-top: 0;
 }
 
-.about-content img {
-  width: 150px;
-  height: auto;
-  border-radius: 10px;
-}
-
-/* Sidebar with social icons */
+/* ===== Sidebar Section ===== */
 .sidebar {
-  flex: 1;
+  float: right;
+  width: 30%;
   background-color: #ecf0f1;
   padding: 20px;
   border-left: 2px solid #ccc;
@@ -69,16 +66,80 @@ nav a {
   margin-top: 0;
 }
 
-.social-icons img {
-  width: 32px;
-  margin: 10px 5px 0 0;
+/* ===== Form Section ===== */
+.form-section {
+  clear: both;
+  background-color: #333333; 
+  color: #ffffff;
+  padding: 30px;
+  text-align: center;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
 }
 
-/* Footer section */
+.form-section h2 {
+  margin-top: 0;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #1a252f;
+}
+
+/* ===== Footer Section ===== */
 footer {
+  clear: both;
   background-color: #2c3e50;
   color: white;
   text-align: center;
-  padding: 15px;
-  margin-top: 20px;
+  padding: 20px;
+}
+
+/* ===== Responsive Layout for Smaller Screens ===== */
+@media (max-width: 768px) {
+  header h1, nav {
+    float: none;
+    text-align: center;
+  }
+
+  .about, .sidebar {
+    float: none;
+    width: 100%;
+    border: none;
+  }
+
+  .form-section {
+    text-align: left;
+    padding: 20px;
+  }
 }
